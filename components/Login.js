@@ -23,7 +23,7 @@ const Login = () => {
         </Stack>
         <Stack spacing={10}>
           <Stack>
-            <Text lineHeight='50px' fontSize='52px'>WELCOME TO <Text color='#D9B020'>OUR KITCHEN</Text></Text>
+            <Text lineHeight='50px' fontSize='52px'>WELCOME TO <Text as='span' display='block' color='#D9B020'>OUR KITCHEN</Text></Text>
             <Box>
               <Text>CHECK OUT THE NEW MENU!</Text>
               <Text>NOW VEGAN FRINDLY!</Text>

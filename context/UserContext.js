@@ -38,7 +38,7 @@ const UserProvider = ({ children }) => {
       icon: 'success',
       confirmButtonText: 'Ok'
     })
-    axios.post('http://challenge-react.alkemy.org/', body)
+    axios.post('challenge-react.alkemy.org/', body)
       .then(res => {
         setUser({ ...user, ...res.data })
         window.localStorage.setItem('token', res.data.token)

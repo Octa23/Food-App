@@ -9,7 +9,8 @@ const Login = () => {
   const router = useRouter()
   const { handleChange, handleSubmit, user } = useContext(UserContext)
   useEffect(() => {
-    router.push('/Home')
+    console.log(user)
+    user.token && router.push('/Home')
   }, [user])
 
   return (
@@ -21,7 +22,7 @@ const Login = () => {
           <Image src='./p2.jpg' alt='sampleimages' objectFit='cover' h='23%' borderRadius={10} boxShadow='0px 4px 25px 5px #000000' />
           <Image src='./p4.jpg' alt='sampleimages' objectFit='cover' h='23%' borderRadius={10} boxShadow='0px 4px 25px 5px #000000' />
         </Stack>
-        <Stack bg='blackAlpha.800' p={5} borderRadius={10} spacing={10}>
+        <Stack bg='blackAlpha.700' p={5} borderRadius={10} spacing={10}>
           <Stack>
             <Text lineHeight='50px' fontSize='52px'>WELCOME TO <Text as='span' display='block' color='#D9B020'>OUR KITCHEN</Text></Text>
             <Box>

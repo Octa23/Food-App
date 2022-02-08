@@ -38,10 +38,18 @@ const UserProvider = ({ children }) => {
       icon: 'success',
       confirmButtonText: 'Ok'
     })
-    axios.post('challenge-react.alkemy.org/', body)
-      .then(res => {
-        setUser({ ...user, ...res.data })
-        window.localStorage.setItem('token', res.data.token)
+    fetch('http://challenge-react.alkemy.org/',
+      {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(body)
+      })
+      .then(res => (res.json())).then(res => {
+        setUser({ ...user, ...res })
+        window.localStorage.setItem('token', res.token)
         window.localStorage.setItem('name', user.name)
       })
   }

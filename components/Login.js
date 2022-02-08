@@ -13,15 +13,15 @@ const Login = () => {
   }, [user])
 
   return (
-    <Box h='100vh' width='max-content' color='white'>
-      <Stack direction='row' alignItems='center' spacing={16}>
-        <Stack h='100vh' justifyContent='space-evenly'>
-          <Image src='./p1.jpg' alt='sampleimages' objectFit='cover' s='400px' h='23%' borderRadius={10} boxShadow='0px 4px 25px 5px #000000' />
-          <Image src='./p3.jpg' alt='sampleimages' objectFit='cover' s='400px' h='23%' borderRadius={10} boxShadow='0px 4px 25px 5px #000000' />
-          <Image src='./p2.jpg' alt='sampleimages' objectFit='cover' s='400px' h='23%' borderRadius={10} boxShadow='0px 4px 25px 5px #000000' />
-          <Image src='./p4.jpg' alt='sampleimages' objectFit='cover' s='400px' h='23%' borderRadius={10} boxShadow='0px 4px 25px 5px #000000' />
+    <Box>
+      <Stack direction='row' alignItems='center' h='100vh' spacing={{ base: 0, lg: 10 }}>
+        <Stack h='100vh' justifyContent='space-evenly' display={{ base: 'none', lg: 'flex' }}>
+          <Image src='./p1.jpg' alt='sampleimages' objectFit='cover' h='23%' borderRadius={10} boxShadow='0px 4px 25px 5px #000000' />
+          <Image src='./p3.jpg' alt='sampleimages' objectFit='cover' h='23%' borderRadius={10} boxShadow='0px 4px 25px 5px #000000' />
+          <Image src='./p2.jpg' alt='sampleimages' objectFit='cover' h='23%' borderRadius={10} boxShadow='0px 4px 25px 5px #000000' />
+          <Image src='./p4.jpg' alt='sampleimages' objectFit='cover' h='23%' borderRadius={10} boxShadow='0px 4px 25px 5px #000000' />
         </Stack>
-        <Stack spacing={10}>
+        <Stack bg='blackAlpha.800' p={5} borderRadius={10} spacing={10}>
           <Stack>
             <Text lineHeight='50px' fontSize='52px'>WELCOME TO <Text as='span' display='block' color='#D9B020'>OUR KITCHEN</Text></Text>
             <Box>
@@ -30,7 +30,7 @@ const Login = () => {
             </Box>
           </Stack>
           <form onSubmit={handleSubmit}>
-            <Stack spacing={4}>
+            <Stack spacing={3}>
               <Text>SIGN IN TO SEE OUR PLATES </Text>
               <Input
                 _placeholder={{ color: '#C4C4C4' }}

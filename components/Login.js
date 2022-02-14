@@ -9,7 +9,6 @@ const Login = () => {
   const router = useRouter()
   const { handleChange, handleSubmit, user } = useContext(UserContext)
   useEffect(() => {
-    console.log(user)
     user.token && router.push('/Home')
   }, [user])
 

@@ -49,9 +49,13 @@ const UserProvider = ({ children }) => {
   // Send a modal with login response
   const handleSubmit = (e) => {
     e.preventDefault()
-    !user.email || !user.password || !user.name
-      ? errorMessage('Complete all the inputs ')
-      : (user.password.length < 3) ? errorMessage('Your password is too short') : successMessage()
+    if (!user.email || !user.password || !user.name) {
+      errorMessage('Complete all the inputs ')
+    } else {
+      if (user.password.length < 3) {
+        errorMessage('Your password is too short')
+      } else { successMessage() }
+    }
   }
 
   const data = { user, setUser, handleSubmit, handleChange }

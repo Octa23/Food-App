@@ -1,29 +1,14 @@
-import { Box, Grid, Image, Stack, Text } from '@chakra-ui/react'
-import { useEffect } from 'react'
+import { Grid } from '@chakra-ui/react'
+import MenuItem from './MenuItem'
 
-const MenuList = ({ food }) => {
-  useEffect(() => {
-    console.log(food)
-  }, [food])
-  console.log(food)
+const MenuList = ({ food, handleAdd, unableitem }) => {
   return (
-
-    <Grid alignItems='center' justifyContent='center' templateColumns='repeat(auto-fit, 180px)' gap={2}>
-      {!food
-        ? null
-        : food.results.map((e) =>
-          <Stack height='100%' key={e.id} bg='blackAlpha.300' p={1} borderRadius={4}>
-            <Image src={e.image} borderRadius={4} />
-            <Box>
-              <Text>
-                {e.title}
-              </Text>
-            </Box>
-          </Stack>
+    <Grid alignItems='center' justifyContent={{ base: 'center', lg: 'flex-start' }} templateColumns='repeat(auto-fill,minmax(180px, 1fr))' gap={5}>
+      {food &&
+        food.map((item) =>
+          <MenuItem key={item.id} handleAdd={handleAdd} item={item} unableitem={unableitem} />
         )}
-
     </Grid>
-
   )
 }
 

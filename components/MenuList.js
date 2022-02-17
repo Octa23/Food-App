@@ -1,14 +1,45 @@
-import { Grid } from '@chakra-ui/react'
+
 import MenuItem from './MenuItem'
+import { chakra, Stack } from '@chakra-ui/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+
+import SliderButton from './SliderButton'
+
+const ChakraSwiper = chakra(Swiper)
 
 const MenuList = ({ food, handleAdd, unableitem }) => {
   return (
-    <Grid alignItems='center' justifyContent={{ base: 'center', lg: 'flex-start' }} templateColumns='repeat(auto-fill,minmax(180px, 1fr))' gap={5}>
+
+    <ChakraSwiper
+      maxW='800px'
+      slidesPerView={2}
+      spaceBetween={20}
+      slidesPerGroup={2}
+      loop
+      style={{
+        '--swiper-navigation-color': '#fff'
+      }}
+      breakpoints={{
+        640: {
+          slidesPerView: 3,
+          slidesPerGroup: 3
+        }
+      }}
+      className='mySwiper'
+    >
       {food &&
         food.map((item) =>
-          <MenuItem key={item.id} handleAdd={handleAdd} item={item} unableitem={unableitem} />
+          <SwiperSlide key={item.id}>
+            <MenuItem handleAdd={handleAdd} item={item} unableitem={unableitem} />
+          </SwiperSlide>
         )}
-    </Grid>
+      <Stack py={5} direction='row' w='100%' justifyContent='center' spacing={10}>
+        <SliderButton action='prev' />
+        <SliderButton />
+      </Stack>
+    </ChakraSwiper>
+
   )
 }
 

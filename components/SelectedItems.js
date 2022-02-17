@@ -37,7 +37,7 @@ const SelectedItems = ({ items, handleRemove }) => {
       <Stack direction='row' justifyContent='center'>
         {rest && rest.map((e, index) => e
           ? <Box
-              key={Math.random()}
+              key={index}
               onClick={() => handleRemove(index, e.title, e.vegan)}
               bgImage={e.image}
               cursor='pointer'
@@ -50,7 +50,7 @@ const SelectedItems = ({ items, handleRemove }) => {
               border='2px solid'
               borderRadius={10}
             />
-          : <Box key={Math.random()} bg='blackAlpha.800' w='50px' h='50px' borderRadius={10} border='2px dashed' />
+          : <Box key={index} bg='blackAlpha.800' w='50px' h='50px' borderRadius={10} border='2px dashed' />
         )}
       </Stack>
       <Stack direction='row' align='center' spacing={5}>

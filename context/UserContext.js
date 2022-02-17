@@ -11,10 +11,12 @@ const UserContext = createContext()
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   //
   useEffect(() => {
     (!user) && (setUser({ token: window.localStorage.getItem('token'), name: window.localStorage.getItem('name') }))
   }, [])
+
   const handleChange = (e) => {
     setUser({
       ...user,
@@ -44,6 +46,7 @@ const UserProvider = ({ children }) => {
         window.localStorage.setItem('token', res.data.token)
         window.localStorage.setItem('name', user.name)
       })
+    setIsLoading(true)
   }
 
   // Send a modal with login response
@@ -58,7 +61,7 @@ const UserProvider = ({ children }) => {
     }
   }
 
-  const data = { user, setUser, handleSubmit, handleChange }
+  const data = { user, setUser, handleSubmit, handleChange, isLoading }
   return <UserContext.Provider value={data}>{children}</UserContext.Provider>
 }
 

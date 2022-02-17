@@ -6,13 +6,13 @@ export const MenuModal = ({ isOpen, onClose, items, Price, ReadyinMinutes, Healt
     <Modal size='xl' isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Your order</ModalHeader>
+        <ModalHeader>Your order </ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <Stack spacing={2}>
-            {items.map((item) =>
-              <Stack bg='whiteAlpha.300' borderRadius={4} p={1} justifyContent='space-between' key={item.id} direction='row'>
-                <Image width='100px' borderRadius={4} src={item.image} />
+            {items.map((item, index) =>
+              <Stack height='110px' bg='whiteAlpha.300' borderRadius={4} p={2} justifyContent='space-between' key={index} direction='row'>
+                <Image width='100px' objectFit='cover' borderRadius={4} src={item.image} />
                 <Stack align='start' justifyContent='space-between' flex={1}>
                   <Text>{item.title}</Text>
                   {item.vegan && <Badge borderRadius='full' px='2' colorScheme='green'> Vegan</Badge>}
@@ -28,14 +28,16 @@ export const MenuModal = ({ isOpen, onClose, items, Price, ReadyinMinutes, Healt
           </Stack>
         </ModalBody>
         <ModalFooter>
-          <Stack w='100%' direction='row-reverse' spacing={4}>
-            <Text fontSize={30} color='green.400'>Total ${Price}</Text>
-            <Button flex={1} colorScheme='green' onClick={onClose}>
-              Ok
-            </Button>
-            <Button flex={1} colorScheme='red' onClick={onClose}>
-              Close
-            </Button>
+          <Stack textAlign='center' w='100%'>
+            <Text fontSize={40} color='green.400'>Total ${Price}</Text>
+            <Stack w='100%' direction='row-reverse' spacing={4}>
+              <Button flex={1} colorScheme='green' onClick={onClose}>
+                Ok
+              </Button>
+              <Button flex={1} colorScheme='red' onClick={onClose}>
+                Close
+              </Button>
+            </Stack>
           </Stack>
         </ModalFooter>
       </ModalContent>

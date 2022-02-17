@@ -3,7 +3,7 @@ import React from 'react'
 import { FaPlus } from 'react-icons/fa'
 const MenuItem = ({ unableitem, handleAdd, item }) => {
   return (
-    <Stack filter={unableitem(item.vegan) && 'grayscale(1)'} height='100%' bg='blackAlpha.600' p={1} borderRadius={4}>
+    <Stack filter={unableitem(item.vegan) && 'grayscale(1)'} h={{ base: '350px', md: '400px' }} bg='blackAlpha.600' p={1} borderRadius={4}>
       <Image src={item.image} borderRadius={4} />
       <Stack flex={1}>
         <Text>

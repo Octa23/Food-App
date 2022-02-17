@@ -47,13 +47,14 @@ const Home = () => {
       </Stack>
       <Box px={{ base: 2, lg: 10 }}>
         <Stack pt={{ base: '180px', md: '130px' }}>
-          <Text fontSize='2xl'>Recomended Vegan Dishes</Text>
+          <Text fontSize='2xl'>Recomended Vegan Dishes </Text>
           <MenuList food={randomFood} handleAdd={handleAdd} unableitem={unableitem} />
         </Stack>
-        <Stack pt='50px'>
-          <Text fontSize='2xl'>Searched Dishes</Text>
-          <MenuList food={food} handleAdd={handleAdd} unableitem={unableitem} />
-        </Stack>
+        {food &&
+          <Stack pt='50px'>
+            <Text fontSize='2xl'>Searched Dishes</Text>
+            <MenuList food={food} handleAdd={handleAdd} unableitem={unableitem} />
+          </Stack>}
       </Box>
     </Box>
   )

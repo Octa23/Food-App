@@ -5390,7 +5390,7 @@ const useMenu = () => {
       title: 'Item added.',
       description: `You've added ${e.title} to the menu`,
       status: 'success',
-      duration: 3000,
+      duration: 1000,
       containerStyle: {
         width: '80%'
       },

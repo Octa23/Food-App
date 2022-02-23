@@ -29,10 +29,10 @@ const Home = () => {
   }, [])
 
   return (
-    <Box pb={50} bgSize='contain' bgImage='./bg2.jpg'>
+    <Box bgGradient='linear(to-t, green.500, yellow.600)'>
       <Stack
         px={{ base: 2, lg: 10 }}
-        p={4}
+        py={4}
         backdropFilter='saturate(180%) blur(5px)'
         backgroundColor='rgba(0,0, 0, 0.4)'
         pos='fixed'
@@ -43,19 +43,29 @@ const Home = () => {
         direction={{ base: 'column', md: 'row-reverse' }}
       >
         <SelectedItems items={selectedFood} handleRemove={handleRemove} />
-        <MenuSearcher handleChange={handleChange} query={query} handleSubmit={handleSubmit} />
       </Stack>
-      <Box px={{ base: 2, lg: 10 }}>
-        <Stack pt={{ base: '180px', md: '130px' }}>
-          <Text fontSize='2xl'>Recomended Vegan Dishes </Text>
+      <Stack bgPosition='right' textAlign={{ base: 'center', md: 'left' }} clipPath='ellipse(100% 55% at 50% 45%)' bgSize='cover' bgImage="linear-gradient(to bottom,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 100%),url('./bg2.jpg')" h={{ base: '100vh', md: '100vh' }} px={{ base: 5, md: 32 }} py={10} justifyContent={{ base: 'end', md: 'center' }}>
+        <Stack w={{ base: '100%', lg: '40%' }} spacing={6}>
+          <Text fontSize={40}>Hello {user.name}!</Text>
+          <Text fontSize={30}>Did you know that you can choose between more than 500 dishes?</Text>
+          <Text fontSize={30}>The widest variety of meals in one place and at the best price!</Text>
+        </Stack>
+      </Stack>
+      <Stack px={{ base: 2, xl: 200 }} py={30} spacing={20}>
+        <Stack spacing={10}>
+          <Text textAlign='center' fontSize='2xl'>Recomended Vegan Dishes </Text>
           <MenuList food={randomFood} handleAdd={handleAdd} unableitem={unableitem} />
         </Stack>
-        {food &&
-          <Stack pt='50px'>
-            <Text fontSize='2xl'>Searched Dishes</Text>
-            <MenuList food={food} handleAdd={handleAdd} unableitem={unableitem} />
-          </Stack>}
-      </Box>
+
+        <Stack spacing={10}>
+          <Stack>
+            <Text textAlign='center' fontSize='2xl'>Search your favorite meal in our menu</Text>
+            <MenuSearcher handleSubmit={handleSubmit} handleChange={handleChange} query={query} />
+          </Stack>
+          {food &&
+            <MenuList food={food} handleAdd={handleAdd} unableitem={unableitem} />}
+        </Stack>
+      </Stack>
     </Box>
   )
 }

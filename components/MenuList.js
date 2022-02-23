@@ -12,18 +12,26 @@ const MenuList = ({ food, handleAdd, unableitem }) => {
   return (
 
     <ChakraSwiper
-      maxW='800px'
+      maxW='100%'
       slidesPerView={2}
-      spaceBetween={20}
+      spaceBetween={10}
       slidesPerGroup={2}
-      loop
       style={{
         '--swiper-navigation-color': '#fff'
       }}
       breakpoints={{
-        640: {
+        600: {
           slidesPerView: 3,
           slidesPerGroup: 3
+
+        },
+        900: {
+          slidesPerView: 4,
+          slidesPerGroup: 4
+        },
+        1470: {
+          slidesPerView: 5,
+          slidesPerGroup: 5
         }
       }}
       className='mySwiper'

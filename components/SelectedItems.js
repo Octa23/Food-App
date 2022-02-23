@@ -33,8 +33,8 @@ const SelectedItems = ({ items, handleRemove }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
-    <Stack spacing={10} direction='row' justifyContent='space-between' alignItems='center'>
-      <Stack direction='row' justifyContent='center'>
+    <Stack w='100%' spacing={10} direction='row' justifyContent='space-between' alignItems='center'>
+      <Stack direction='row' spacing={4}>
         {rest && rest.map((e, index) => e
           ? <Box
               key={index}

@@ -1,7 +1,7 @@
 import { Badge, Button, Divider, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
 
-export const MenuModal = ({ isOpen, onClose, items, Price, ReadyinMinutes, HealthScore }) => {
+export const MenuModal = ({ isOpen, onClose, items, Price, ReadyinMinutes, HealthScore, handlePay }) => {
   return (
     <Modal size='xl' isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -31,7 +31,12 @@ export const MenuModal = ({ isOpen, onClose, items, Price, ReadyinMinutes, Healt
           <Stack textAlign='center' w='100%'>
             <Text fontSize={40} color='green.400'>Total ${Price}</Text>
             <Stack w='100%' direction='row-reverse' spacing={4}>
-              <Button flex={1} colorScheme='green' onClick={onClose}>
+              <Button
+                flex={1} colorScheme='green' onClick={() => {
+                  onClose()
+                  handlePay()
+                }}
+              >
                 Ok
               </Button>
               <Button flex={1} colorScheme='red' onClick={onClose}>

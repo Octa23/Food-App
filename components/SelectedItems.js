@@ -8,7 +8,7 @@ const sumatoria = (array, promedio = false) => {
   return !promedio ? total : total / array.length
 }
 
-const SelectedItems = ({ items, handleRemove }) => {
+const SelectedItems = ({ items, handleRemove, handlePay }) => {
   const rest = [].concat(items)
 
   const Prices = []
@@ -64,7 +64,7 @@ const SelectedItems = ({ items, handleRemove }) => {
           opacity={items.length === 4 ? '1' : '.4'}
         />
       </Stack>
-      <MenuModal isOpen={isOpen} Price={FinalPrice} ReadyinMinutes={AverageReadyinMinutes} HealthScore={AverageHealthScore} onClose={onClose} items={items} />
+      <MenuModal handlePay={handlePay} isOpen={isOpen} Price={FinalPrice} ReadyinMinutes={AverageReadyinMinutes} HealthScore={AverageHealthScore} onClose={onClose} items={items} />
     </Stack>
   )
 }

@@ -17,7 +17,8 @@ const Home = () => {
     unableitem,
     handleSubmit,
     handleChange,
-    query
+    query,
+    handlePay
   } = useMenu()
 
   const router = useRouter()
@@ -29,7 +30,7 @@ const Home = () => {
   }, [])
 
   return (
-    <Box bgGradient='linear(to-t, green.500, yellow.600)'>
+    <Box backgroundColor='#93a5ce' backgroundImage='linear-gradient(10deg, #93a5ce 0%, #14557b 74%)'>
       <Stack
         px={{ base: 2, lg: 10 }}
         py={4}
@@ -42,7 +43,7 @@ const Home = () => {
         zIndex={10}
         direction={{ base: 'column', md: 'row-reverse' }}
       >
-        <SelectedItems items={selectedFood} handleRemove={handleRemove} />
+        <SelectedItems items={selectedFood} handleRemove={handleRemove} handlePay={handlePay} />
       </Stack>
       <Stack bgPosition='right' textAlign={{ base: 'center', md: 'left' }} clipPath='ellipse(100% 55% at 50% 45%)' bgSize='cover' bgImage="linear-gradient(to bottom,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 100%),url('./bg2.jpg')" h={{ base: '100vh', md: '100vh' }} px={{ base: 5, md: 32 }} py={10} justifyContent={{ base: 'end', md: 'center' }}>
         <Stack w={{ base: '100%', lg: '40%' }} spacing={6}>
@@ -52,10 +53,11 @@ const Home = () => {
         </Stack>
       </Stack>
       <Stack px={{ base: 2, xl: 200 }} py={30} spacing={20}>
-        <Stack spacing={10}>
-          <Text textAlign='center' fontSize='2xl'>Recomended Vegan Dishes </Text>
-          <MenuList food={randomFood} handleAdd={handleAdd} unableitem={unableitem} />
-        </Stack>
+        {randomFood &&
+          <Stack spacing={10}>
+            <Text textAlign='center' fontSize='2xl'>Recomended Vegan Dishes </Text>
+            <MenuList food={randomFood} handleAdd={handleAdd} unableitem={unableitem} />
+          </Stack>}
 
         <Stack spacing={10}>
           <Stack>
@@ -66,6 +68,7 @@ const Home = () => {
             <MenuList food={food} handleAdd={handleAdd} unableitem={unableitem} />}
         </Stack>
       </Stack>
+
     </Box>
   )
 }

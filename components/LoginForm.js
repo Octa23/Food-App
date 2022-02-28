@@ -6,7 +6,7 @@ export const LoginForm = ({ handleSubmit, handleChange, user }) => {
   return (
     <form onSubmit={handleSubmit}>
       <Stack spacing={3}>
-        <Text>SIGN IN TO SEE OUR PLATES </Text>
+        <Text>SIGN IN TO SEE OUR DISHES </Text>
         <Input
           _placeholder={{ color: '#C4C4C4' }}
           borderColor='whiteAlpha.800'

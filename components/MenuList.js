@@ -5,10 +5,18 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
 import SliderButton from './SliderButton'
+import { useEffect, useRef } from 'react'
 
 const ChakraSwiper = chakra(Swiper)
 
 const MenuList = ({ food, handleAdd, unableitem }) => {
+  const swiperRef = useRef(null)
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [food])
+
   return (
 
     <ChakraSwiper
@@ -42,7 +50,7 @@ const MenuList = ({ food, handleAdd, unableitem }) => {
             <MenuItem handleAdd={handleAdd} item={item} unableitem={unableitem} />
           </SwiperSlide>
         )}
-      <Stack py={5} direction='row' w='100%' justifyContent='center' spacing={10}>
+      <Stack ref={swiperRef} py={5} direction='row' w='100%' justifyContent='center' spacing={10}>
         <SliderButton action='prev' />
         <SliderButton />
       </Stack>
